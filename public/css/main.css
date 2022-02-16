@@ -1,0 +1,660 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;700&display=swap");
+
+:root {
+  --background-color: hsl(0, 0%, 93%);
+  --text-color: hsl(250, 30%, 20%);
+  --accent: hsl(252, 45%, 65%);
+  --accent-bg: hsl(253, 19%, 86%);
+  --focus: hsl(216, 94%, 58%);
+  --font: 1.2rem/1.53 "IBM Plex Serif", "sans-serif", serif;
+  --transition: 0.5s all ease;
+  --box-shadow: 0px 0px 0.3rem rgb(148 136 195 / 70%);
+  box-sizing: border-box;
+}
+
+*,
+::before,
+::after {
+  box-sizing: inherit;
+}
+
+.dark {
+  --accent-bg: hsl(253, 10%, 28%);
+  --background-color: hsl(0, 0%, 17%);
+  --text-color: hsl(31, 22%, 74%);
+  --hover-color: hsl(250, 10%, 10%);
+}
+
+html {
+  --thumbBG: hsl(0, 0%, 75%);
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font: var(--font);
+  font-feature-settings: "case", "calt", "tnum", "ss01", "zero";
+  text-rendering: optimizeLegibility;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  opacity: 0.01;
+  animation: fade 1s ease-in forwards 0.3s;
+  scrollbar-color: var(--thumbBG);
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+}
+
+::selection {
+  background-color: hsl(252, 30%, 75%);
+  /* WebKit/Blink Browsers */
+}
+
+.dark ::selection {
+  background-color: hsl(250, 10%, 10%);
+}
+
+:focus {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* and the class clearfix to an element to force it to contain its floated contents (this is used as a fallback for browser that don't support flex and grid */
+
+.float-left {
+  float: left;
+}
+
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: table;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+/* show focus only when user is tabbing, you can find it's relevant JS code in main.js*/
+
+body:not(.user__is__tabbing) a:focus,
+body:not(.user__is__tabbing) button:focus {
+  outline: none;
+}
+
+/* custom scrollbar */
+
+body::-webkit-scrollbar {
+  width: 8px;
+}
+
+body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--thumbBG);
+  border-radius: 50px;
+  border: 3px solid transparent;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background-color: hsl(0, 0%, 56%);
+}
+
+/* general classes
+     ========================================================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  letter-spacing: -0.01em;
+}
+
+h1 {
+  font-size: 1.65rem;
+  margin: 0;
+}
+
+/** link
+   * Based on LoVe/HAte css specificity rule
+   */
+
+a:link {
+  color: var(--text-color);
+  word-break: break-word;
+}
+
+a:visited {
+  color: var(--text-color);
+  /* TODO: change color */
+}
+
+a:hover {
+  color: var(--text-color);
+  /* TODO: change color */
+}
+
+a:active {
+  color: var(--text-color);
+  /* TODO: change color */
+}
+
+/* utility classes
+     ========================================================================== */
+
+/* display modifiers */
+
+.d-flex {
+  display: flex !important;
+}
+
+.d-inline-flex {
+  display: inline-flex !important;
+}
+
+.d-inline-block {
+  display: inline-block !important;
+}
+
+/* text modifiers */
+
+.text-align-center {
+  text-align: center !important;
+}
+
+/* position modifiers */
+
+.position-relative {
+  position: relative !important;
+}
+
+/* margin modifiers */
+
+.m-1 {
+  margin: 0.25em;
+}
+
+/* padding modifiers */
+
+.p-1 {
+  padding: 0.25em;
+}
+
+.text-decoration-none {
+  text-decoration: none;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.breadcrumb__container {
+  padding: 1em 0;
+  margin-left: 10px;
+}
+
+.scroll__to__bottom {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 1.5em;
+}
+
+.scroll__to__bottom a:focus {
+  outline: unset;
+}
+
+.bounce {
+  animation: bounce 2s infinite;
+}
+
+.bounce:hover {
+  animation: unset;
+}
+
+/* homepage classes
+     ========================================================================== */
+
+.modal-window {
+  padding: 0.75em;
+  position: fixed;
+  background-color: var(--background-color);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s;
+  overflow: hidden;
+}
+
+.modal-window:target {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.icon-times {
+  background-image: url("../images/times-light-bg--small.svg");
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+}
+
+.modal-close {
+  float: right;
+  margin: 0.8em;
+}
+
+.dark .icon-times {
+  background-image: url("../images/times-dark-bg--small.svg");
+}
+
+.profile__picture_container {
+  height: 204px;
+  display: flex;
+  align-items: center;
+}
+
+.profile__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 1em;
+}
+
+.intro__container {
+  display: grid;
+  place-content: center;
+  position: relative;
+  height: calc(100vh - 76px);
+  max-width: 800px;
+  padding: 0.75em;
+  margin: 0 auto;
+}
+
+.speaker__hight__volume__icon {
+  background-image: url("../images/volume-dark-bg--small.svg");
+  height: 16px;
+  width: 20px;
+  display: inline-block;
+  position: relative;
+  top: 2px;
+}
+
+.dark .speaker__hight__volume__icon {
+  background-image: url("../images/volume-light-bg--small.svg");
+}
+
+.airtable__container {
+  position: relative;
+}
+
+.intro__title {
+  display: flex;
+  justify-content: center;
+  color: var(--accent);
+  font-size: 2.25rem;
+}
+
+.intro__title > span {
+  font-size: 0.6em;
+  display: flex;
+  align-self: center;
+  padding-left: 0.25em;
+  padding-top: 0.25em;
+}
+
+.speaker__high__volume {
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.company__external__link svg {
+  width: 0.85em;
+  padding: 5px 0 0 5px;
+}
+
+/* now.html classes
+     ========================================================================== */
+
+.breadcrumb__container {
+  display: flex;
+}
+
+.go__back {
+  align-items: center;
+  align-self: center;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.go__back svg {
+  width: 0.95em;
+  padding: 5px 8px 0 0;
+}
+
+.page__title {
+  width: 100%;
+  justify-content: center;
+  display: flex;
+}
+
+.airtable__embed {
+  box-shadow: rgb(0 0 0 / 15%) 0px 0px 0px 1px;
+  height: calc(100vh - 78px);
+  width: calc(100vw - 20px);
+  margin: 0 10px;
+  background: url("../images/loader.svg") center no-repeat;
+}
+
+.dark .airtable__embed {
+  background: url("../images/loader-white.svg") center no-repeat;
+}
+
+/* contact classes
+     ========================================================================== */
+
+.wrapper {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact__inner {
+  display: grid;
+  place-content: center;
+  padding: 0.75em 0.75em 2em 0.75em;
+}
+
+.contact__social {
+  display: flex;
+}
+
+.contact__social a {
+  width: 2rem;
+  margin-right: 1.6rem;
+  font-size: 0;
+}
+
+.contact__social .github__icon {
+  padding-top: 0.2rem;
+}
+
+.contact__social svg:hover,
+.dark .contact__social svg {
+  fill: var(--accent);
+  transition: fill 0.2s ease-out;
+}
+
+.dark .contact__social svg:hover {
+  fill: var(--hover-color);
+  transition: fill 0.2s ease-out;
+}
+
+.batata__harra {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 0.3em;
+}
+
+.batata__harra__text {
+  font-size: 0.75rem;
+  padding-right: 1.25em;
+}
+
+.batata {
+  display: inline-block;
+  min-width: 40px;
+}
+
+.batata > img {
+  width: 20px;
+  height: 20px;
+}
+
+.harra {
+  position: absolute;
+  transform: translate(-10%, -86%);
+  width: 48px;
+  height: 48px;
+  max-width: 100%
+}
+
+/**
+   * white-label airtable mobile
+   */
+
+#white__labeling__airtable {
+  position: absolute;
+  width: calc(100vw - 18px);
+  height: 27px;
+  left: 9px;
+  bottom: 5px;
+  background-color: var(--background-color);
+  border-top: 1px solid #cacaca;
+}
+
+.dark #white__labeling__airtable {
+  border-top: 1px solid #222;
+}
+
+.accent__bg {
+  background-color: var(--accent-bg);
+}
+
+.trail {
+  position: absolute;
+  width: 3.75em;
+  height: 3.75em;
+  margin-top: -30px;
+  margin-left: -30px;
+  background-size: cover;
+  background: url(../images/emoji-trail.png) no-repeat;
+  pointer-events: none;
+}
+
+/* desktop styles
+     ========================================================================== */
+
+@media screen and (min-width: 450px) {
+  :root {
+    --font: 1.6rem/1.63 "IBM Plex Serif", "sans-serif", serif;
+  }
+
+  h1 {
+    font-size: 2.45rem;
+  }
+
+  .intro__container {
+    padding: 1.5em 0.75em;
+  }
+
+  .intro__title {
+    font-size: 3.8rem;
+    line-height: 1.658;
+    justify-content: flex-start;
+  }
+
+  .intro__title__name {
+    padding-left: 4px;
+  }
+
+  .intro__description {
+    margin: 2em 0;
+  }
+
+  .speaker__hight__volume__icon {
+    height: 20px;
+    width: 25px;
+  }
+
+  .speaker__hight__volume__icon {
+    background-image: url("../images/volume-dark-bg.svg");
+  }
+
+  .dark .speaker__hight__volume__icon {
+    background-image: url("../images/volume-light-bg.svg");
+  }
+
+  .profile__picture_container {
+    margin-right: 2em;
+    margin-bottom: unset;
+    width: 200px;
+  }
+
+  .profile__container {
+    flex-direction: row;
+    justify-content: center;
+    padding-bottom: unset;
+  }
+
+  .breadcrumb__container {
+    padding: 2em 0;
+    margin-left: unset;
+  }
+
+  .go__back {
+    text-decoration: underline;
+  }
+
+  .go__back .icon-chevron-left {
+    position: absolute;
+    padding-bottom: 4px;
+  }
+
+  .go__back::after {
+    content: "Go back";
+    position: static;
+    padding-left: 25px;
+    padding-bottom: 8px;
+  }
+
+  .go__back svg {
+    width: 0.75em;
+  }
+
+  .page__title {
+    padding-right: 4em;
+  }
+
+  .wrapper {
+    margin: 0 auto;
+  }
+
+  .contact__inner {
+    padding: 4em 0.75em;
+  }
+
+  .batata__harra {
+    justify-content: center;
+  }
+
+  .batata__harra__text {
+    font-size: 1rem;
+  }
+
+  .batata > img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .harra {
+    transform: translate(-8%, -72%);
+    width: fit-content;
+  }
+
+  /**
+   * white-label airtable desktop
+   */
+  #white__labeling__airtable {
+    width: calc(100% - 17px);
+    height: 25px;
+    bottom: 7px;
+  }
+
+  .airtable__embed {
+    height: calc(100vh - 244px);
+    width: 100%;
+    margin: unset;
+  }
+
+  .airtable__container {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1440px;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+
+  .wrapper {
+    margin: 0 auto;
+  }
+
+  .contact__inner {
+    padding: 4em 0.75em;
+  }
+}
+
+/* parallax
+     ========================================================================== */
+main {
+  position: relative;
+  z-index: 10;
+  background-color: var(--background-color);
+  min-height: 100vh;
+}
+.parallax-placeholder {
+  z-index: 1;
+  position: relative;
+}
+.footer-container {
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  z-index: 5;
+}
+/* animations
+     ========================================================================== */
+
+@keyframes fade {
+  from {
+    opacity: 0.01;
+    transform: scale(0.994);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+
+  40% {
+    transform: translateY(-8px);
+  }
+
+  60% {
+    transform: translateY(-4px);
+  }
+}
