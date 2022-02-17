@@ -326,12 +326,6 @@ a:active {
     margin: 2em 0;
   }
 
-  .profile__picture_container {
-    margin-right: 2em;
-    margin-bottom: unset;
-    width: 200px;
-  }
-
   .profile__container {
     flex-direction: row;
     justify-content: center;

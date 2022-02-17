@@ -30,8 +30,33 @@
 
   <meta name="theme-color" content="#ededed" />
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/underscore@1.11.0/underscore-min.js"></script>
+
+  <script id="menu-template" type="text/x-handlebars-template">
+        {{#each this as |category|}}
+          <div class="wrapper">
+            <div class="category__container">
+              <h3 class="category__title">{{@key}}</h3>
+              <ul class="list-unstyled">
+                {{#each this as |item|}}
+                  <li class="menu__item__container">
+                    <div class="menu__item__name">{{item.item}}</div>
+                    {{#if item.isVegetarian}}
+                      <div class="menu__item__vegetarian">V</div>
+                    {{/if}}
+                    <div class="menu__item__price">&pound;{{item.price}}</div>
+                  </li>
+                {{/each}}
+              </ul>
+            </div>
+          </div>
+        {{/each}}
+    </script>
+
   <!-- components -->
   <script src="components/footer.js" type="text/javascript" defer></script>
+  <script src="components/menu.js" type="text/javascript" defer></script>
 </head>
 
 <body>
@@ -46,6 +71,9 @@
         </div>
       </div>
     </section>
+    <section class="menu-component" style="display: none;">
+      <div class="container" id="menu">Loading menu...</div>
+    </section>
   </main>
   <div class="parallax-placeholder"></div>
   <div class="footer-container">
@@ -53,15 +81,6 @@
   </div>
   <!-- Scripts -->
   <script type="module" src="js/main.js"></script>
-  <script>
-    let url = 'https://api.sheety.co/fad9eeaf396da2056c40d6327666cac5/abouHassan/menu';
-    fetch(url)
-      .then((response) => response.json())
-      .then(json => {
-        // Do something with the data
-        console.log(json.menus);
-      });
-  </script>
 </body>
 
 </html>
