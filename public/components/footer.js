@@ -6,11 +6,11 @@ class Footer extends HTMLElement {
     this.innerHTML = `
         <footer id="contact" class="accent__bg">
           <div class="contact__inner wrapper">
-            <h2 class="contact__heading">let's build something together</h2>
+            <h2 class="contact__heading">Contact Us</h2>
             <div>
-              <p>I’m always up for a chat.</p>
-              <p><a href="mailto:kevin@abouhanna.com">Drop me an email</a> at
-                kevin@abouhanna.com<br>or give me a shout on social media.</p>
+              <p>We're always happy to serve you.</p>
+              <p><a href="mailto:info@abouhassan.net">Drop us an email</a> at
+                info@abouhassan.net<br>or give us a shout on social media.</p>
               <div class="contact__social">
                 <a class="linkedin__icon" rel="noopener" href="https://www.linkedin.com/in/kevinabouhanna/" target="_blank">
                 LinkedIn<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -25,24 +25,7 @@ class Footer extends HTMLElement {
               </div>
             </div>
           </div>
-        </footer>
-        <div class="webring">
-        <p class="batata__harra text-align-center">
-          <span class="batata__harra__text">A proud member of Batata Harra Webring</span>
-          <a title="Visit gabykaram.com" aria-label="visit Gaby Karam Dot Com" class="text-decoration-none p-1" href="https://gabykaram.com">
-            <i class="icon-chevron-left"></i>
-          </a>
-          <a rel="noopener" title="Batata Harra Webring" aria-label="visit Batata Harra Dot Guru" class="text-decoration-none m-1" href="https://batataharra.guru" target="_blank">
-            <span>
-              <img class="harra" src="../images/flame.gif" alt="Flame">
-              <span class="batata"><img alt="Potato" src="../images/batata.webp" /></span>
-            </span>
-          </a>
-          <a title="Visit andoinedebes.codes" aria-label="visit Antoine Debes Dot Codes" class="text-decoration-none p-1" href="https://antoinedebes.codes">
-            <i class="icon-chevron-right"></i>
-          </a>
-        </p>
-      </div>`;
+        </footer>`;
   }
 }
 
