@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 :root {
   --background-color: hsl(0, 0%, 93%);
@@ -6,9 +6,10 @@
   --accent: hsl(252, 45%, 65%);
   --accent-bg: hsl(253, 19%, 86%);
   --focus: hsl(216, 94%, 58%);
-  --font: 1.2rem/1.53 "IBM Plex Serif", "sans-serif", serif;
+  --font: 1.2rem/1.53 "Amiri", serif;
   --transition: 0.5s all ease;
   --box-shadow: 0px 0px 0.3rem rgb(148 136 195 / 70%);
+  --background-pattern: #f0f0f0;
   box-sizing: border-box;
 }
 
@@ -35,15 +36,17 @@ body {
   scrollbar-color: var(--thumbBG);
   line-height: 1.6;
   letter-spacing: 0.01em;
+  /* background-color:white;
+  background-image:
+  radial-gradient(var(--background-pattern) 9px, transparent 10px),
+  repeating-radial-gradient(var(--background-pattern) 0, var(--background-pattern) 4px, transparent 5px, transparent 20px, var(--background-pattern) 21px, var(--background-pattern) 25px, transparent 26px, transparent 50px);
+  background-size: 30px 30px, 90px 90px;
+  background-position: 0 0; */
 }
 
 ::selection {
   background-color: hsl(252, 30%, 75%);
   /* WebKit/Blink Browsers */
-}
-
-.dark ::selection {
-  background-color: hsl(250, 10%, 10%);
 }
 
 :focus {
@@ -181,16 +184,34 @@ a:active {
   cursor: pointer;
 }
 
+/* custom styles */
+.profile__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 1em 0;
+}
+
+.profile__container svg {
+  width: 35vw;
+  height: fit-content;
+}
+
 /* desktop styles
      ========================================================================== */
 
 @media screen and (min-width: 450px) {
   :root {
-    --font: 1.6rem/1.63 "IBM Plex Serif", "sans-serif", serif;
+    --font: 1.6rem/1.63 "Amiri", serif;
   }
 
   h1 {
     font-size: 2.45rem;
+  }
+
+  .profile__container svg {
+    width: 15vw;
   }
 }
 
@@ -207,14 +228,4 @@ a:active {
     opacity: 1;
     transform: scale(1);
   }
-}
-
-.profile__container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.profile__container svg {
-  width: 15vw;
 }
