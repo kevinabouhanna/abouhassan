@@ -42,6 +42,7 @@ body {
   repeating-radial-gradient(var(--background-pattern) 0, var(--background-pattern) 4px, transparent 5px, transparent 20px, var(--background-pattern) 21px, var(--background-pattern) 25px, transparent 26px, transparent 50px);
   background-size: 30px 30px, 90px 90px;
   background-position: 0 0; */
+  background: #fff url(/images/test.svg) center center/contain repeat fixed;
 }
 
 ::selection {
