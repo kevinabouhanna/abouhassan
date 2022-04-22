@@ -183,6 +183,7 @@ a:active {
   justify-content: center;
   flex-direction: column;
   padding: 2em 0;
+  height: 100vh;
 }
 
 .profile__container svg {
@@ -249,13 +250,47 @@ body, html {
 }
 
 .img2 {
-  background-image: url('https://images.pexels.com/photos/772520/pexels-photo-772520.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500');
-  height: 70%;
+  background: #fff url(/images/drabzin.svg) center center/contain no-repeat fixed;
+  height: 100vh;
 }
 
 .img3 {
-  background-image: url('https://images.pexels.com/photos/1154619/pexels-photo-1154619.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');
-  height: 50%;
+  background-image: url(/images/foul.png);
+  height: 100vh;
+}
+
+.ornament {
+  position: absolute;
+  width: 6em;
+  height: 6em;
+  opacity: 50%;
+}
+
+.ornament--top-left {
+  top: 0;
+  left: 0;
+  background: transparent url(/images/ornament.svg) left top/contain no-repeat content-box;
+}
+
+.ornament--top-right {
+  top: 0;
+  right: 0;
+  background: transparent url(/images/ornament.svg) right top/contain no-repeat content-box;
+  transform: rotate(90deg);
+}
+
+.ornament--bottom-left {
+  bottom: 0;
+  left: 0;
+  background: transparent url(/images/ornament.svg) left bottom/contain no-repeat content-box;
+  transform: rotate(270deg);
+}
+
+.ornament--bottom-right {
+  bottom: 0;
+  right: 0;
+  background: transparent url(/images/ornament.svg) right bottom/contain no-repeat content-box;
+  transform: rotate(180deg);
 }
 
 @media only screen and (max-width: 600px) {
