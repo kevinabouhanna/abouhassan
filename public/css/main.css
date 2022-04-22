@@ -31,18 +31,9 @@ body {
   text-rendering: optimizeLegibility;
   background-color: var(--background-color);
   color: var(--text-color);
-  opacity: 0.01;
-  animation: fade 1s ease-in forwards 0.3s;
   scrollbar-color: var(--thumbBG);
   line-height: 1.6;
   letter-spacing: 0.01em;
-  /* background-color:white;
-  background-image:
-  radial-gradient(var(--background-pattern) 9px, transparent 10px),
-  repeating-radial-gradient(var(--background-pattern) 0, var(--background-pattern) 4px, transparent 5px, transparent 20px, var(--background-pattern) 21px, var(--background-pattern) 25px, transparent 26px, transparent 50px);
-  background-size: 30px 30px, 90px 90px;
-  background-position: 0 0; */
-  background: #fff url(/images/test.svg) center center/contain repeat fixed;
 }
 
 ::selection {
@@ -191,7 +182,7 @@ a:active {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding: 1em 0;
+  padding: 2em 0;
 }
 
 .profile__container svg {
@@ -228,5 +219,48 @@ a:active {
   to {
     opacity: 1;
     transform: scale(1);
+  }
+}
+
+/* Setting up the Parallax Standard for the webpage */
+body, html {
+  width: 100%;
+  height: 100%;
+}
+
+.parallax {
+  position: relative;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display : flex;
+  align-items : center;
+  margin: 0px auto;
+}
+
+.parallax > div {
+  margin: 0px auto;
+}
+
+.img1 {
+  background: #fff url(/images/test.svg) center center/contain repeat fixed;
+  height: 80vh;
+}
+
+.img2 {
+  background-image: url('https://images.pexels.com/photos/772520/pexels-photo-772520.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500');
+  height: 70%;
+}
+
+.img3 {
+  background-image: url('https://images.pexels.com/photos/1154619/pexels-photo-1154619.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');
+  height: 50%;
+}
+
+@media only screen and (max-width: 600px) {
+  .parallax {
+    width: 100%;
+    height: 100%;
   }
 }
